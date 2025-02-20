@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/estiloexibir.css">
+    <link rel="icon" type="image/png" href="../static/img/Cartao-icon.png">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+<section class="containerexibir">
+    <header><a href="/"><img class="homeimg" src="/static/img/icons8-home-50.png"></a>{{ titulo }}</header>
+</section>
+<div class="containertabela">
+    <table class="tabela">
+        <thead>
+        <tr>
+            <th>Nome Completo</th>
+            <th>Número do Cartão</th>
+            <th>Data de validade</th>
+            <th>CVV</th>
+            <th>Funções</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in dados %}
+            <tr>
+                <td>{{ item["Nome"] }}</td>
+                <td>{{ item["Nmr"] }}</td>
+                <td>{{ item["Data"] }}</td>
+                <td>{{ item["cvv"] }}</td>
+                <td>
+                    <a href="/editar/{{ item['doc_id'] }}"><img class="icone" src="/static/img/icons8-edit-50.png"></a>
+                    <a href="/excluir/{{ item['doc_id'] }}"><img class="icone" src="/static/img/icons8-no-entry-50.png"></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
